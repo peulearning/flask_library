@@ -17,6 +17,17 @@ De que coisas você precisa para instalar o software e como instalá-lo?
 Independente do sistema operacional que esteja , verifique se possui o Python e sua versão instalada na sua máquina.
 
 ``
+Faça o Clone do Projeto
+
+``
+
+```
+git clone https://github.com/peulearning/flask_library.git
+
+```
+
+
+``
 Nas depedências do projeto rodar no terminal se estiver utilizando PYTHON
 
 ```
@@ -24,21 +35,26 @@ pip install -r requirements.txt
 
 ```
 
-Crie um arquivo requirements.txt ou gere automaticamente via
+Para inicializar deve está conectado com seu MySQL e fazer as configurações nos arquivos  ``setupDB.py``, ``app.py``e ``test.py`` os parâmetros a serem modificados estão comentados.
+
+Em seguida deve criar as tabelas usando ``setupDB.py``
 
 ```
-pip freeze > requirements.txt
+cd utils
+
+python3 setupDB.py
+
+cd ..
 
 ```
 
-Faça esse passo funcionar antes de seguir ! Após funcionar instale a Lib que usaremos para gerar a interatividade de interface.
+Faça o passo anterior para funcionar e ligue o seu servidor local (XAMPP OU SIMILAR) !
+
+
+Por fim execute
 
 ```
-instale a ferarmenta  PIP antes
-
-pip install PySimpleGUI
-
-
+python3 app.py
 
 ```
 
@@ -47,20 +63,38 @@ pip install PySimpleGUI
 ### 🔩 Analise os testes de ponta a ponta
 
 ```
-Teste de Funcionalidade do Chat em Tempo Real:
+    Teste de funcionalidade básica:
+        Verificar se é possível adicionar novos livros ao sistema.
+        Verificar se é possível pesquisar e encontrar livros no sistema.
+        Verificar se é possível emprestar e devolver livros.
+        Verificar se é possível atualizar informações de livros e usuários.
+        Verificar se é possível visualizar histórico de empréstimos e reservas.
 
-    Cenário:
-        Dois usuários estão conectados ao servidor simultaneamente.
-        O primeiro usuário envia uma mensagem.
-        O segundo usuário recebe a mensagem em tempo real.
+    Teste de integração com banco de dados:
+        Verificar se os dados são corretamente armazenados e recuperados do banco de dados.
+        Testar se as operações de leitura, escrita e atualização de dados estão funcionando corretamente.
 
-Teste de Concorrência (Múltiplos Clientes):
+    Teste de segurança:
+        Verificar se há proteção contra acessos não autorizados.
+        Testar se as senhas dos usuários são armazenadas de forma segura.
+        Verificar se há proteção contra injeção de SQL e outros ataques comuns.
 
-    Cenário:
-        Vários usuários estão conectados ao sistema simultaneamente e interagem entre si.
-    Verificação:
-        Confirma se o sistema pode lidar com múltiplos clientes simultaneamente.
-        Garante que a comunicação entre os clientes e o servidor ocorra sem conflitos.
+    Teste de usabilidade:
+        Avaliar a facilidade de uso do sistema para os usuários.
+        Verificar se a navegação é intuitiva e se as funcionalidades são facilmente acessíveis.
+        Coletar feedback dos usuários sobre a experiência de uso do sistema.
+
+    Teste de desempenho:
+        Avaliar a velocidade de resposta do sistema em diferentes cenários de uso.
+        Testar a capacidade do sistema em lidar com um grande volume de dados e usuários simultâneos.
+        Identificar possíveis gargalos de desempenho e otimizar o sistema conforme necessário.
+
+    Teste de integração com sistemas externos:
+        Verificar se o sistema se integra corretamente com sistemas de pagamento, sistemas de gestão de bibliotecas externas, entre outros.
+
+    Teste de compatibilidade:
+        Verificar se o sistema funciona corretamente em diferentes navegadores web e dispositivos.
+        Testar a compatibilidade com diferentes sistemas operacionais, se aplicável.
 ```
 
 ## 🛠️ Construído com
@@ -68,7 +102,9 @@ Teste de Concorrência (Múltiplos Clientes):
 Mencione as ferramentas que você usou para criar seu projeto
 
 - [Python](https://docs.python.org/pt-br/3/tutorial/) - PYTHON
-- [PySimpleGUI](https://www.pysimplegui.org/en/latest/) - Interface Gráfica
+- [Flask](https://flask.palletsprojects.com/en/3.0.x/) - MicroFramework
+- [MySQL](https://www.mysql.com/) - Banco de Dados
+- [XAMPP](https://www.apachefriends.org/pt_br/index.html) - LocalHost
 
 ## 🖇️ Colaborando
 
@@ -76,16 +112,16 @@ Por favor, leia o [COLABORACAO.md](https://gist.github.com/usuario/linkParaInfoS
 
 ## 📌 Versão
 
-(0.1.0) - 26-01-2024 (Iniciando o chat multiclient)
-(1.1.1) - 04-02-2024 (Integrando algumas funcionalidades)
+(Final) - 22-02-2024 (Versão_Final)
+
 
 ## ✒️ Autores
 
 Mencione todos aqueles que ajudaram a levantar o projeto desde o seu início
 
-- **Ms. Prof Adriano** - _Ideia do Projeto Inicial_ - [Orientador](https://github.com/adrianoifnmg)
+- **Prof. Danilo Nunes** - _Ideia do Projeto Inicial_ - [Orientador](https://github.com/danilonunes)
 
-- **Pedro Henrique (EU)** - _Desenvolvedor do Chat_
+- **Pedro Henrique (EU)** - _Dev_
 
 Você também pode ver a lista de todos os [colaboradores](https://github.com/usuario/projeto/colaboradores) que participaram deste projeto.
 
