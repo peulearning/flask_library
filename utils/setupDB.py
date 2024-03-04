@@ -13,7 +13,7 @@ def executeScriptsFromFile(filename):
     mydb = mysql.connector.connect(
         host="localhost",
         user="root",  # change as required
-        passwd="",  # change as required
+        passwd="1020",  # change as required
     )
     c = mydb.cursor()
 
