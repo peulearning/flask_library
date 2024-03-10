@@ -1,13 +1,13 @@
 {% extends 'layout.html' %}
 {% block body %}
 <br>
-<h1 style="color: aqua;">Reports</h1>
+<h1 style="color: rgb(0, 0, 0);">Reports</h1>
 <hr>
 <br>
 {% if books%}
-<h3 style="color: aqua;">Most Popular Books</h3>
+<h3 style="color: rgb(0, 0, 0);">Most Popular Books</h3>
 <table class="table table-striped table-hover">
-    <thead style="color: aqua;">
+    <thead style="color: rgb(0, 0, 0);">
         <tr>
             <th>Book ID</th>
             <th>Title</th>
@@ -19,7 +19,7 @@
     </thead>
     <tbody>
         {% for book in books %}
-        <tr style="cursor:pointer;color: aliceblue;">
+        <tr style="cursor:pointer;color: rgb(0, 0, 0);">
             <td><a href="/book/{{book.id}}" class="btn btn-dark pull-right">{{"{:05d}".format(book.id)}}</a></td>
             <td onclick="window.location='/book/{{book.id}}';">{{book.title}}</td>
             <td onclick="window.location='/book/{{book.id}}';">{{book.author}}</td>
@@ -34,10 +34,10 @@
 
 {% if members%}
 <br>
-<h3 style="color: aqua;">Highest Paying Customers</h3>
+<h3 style="color: rgb(0, 0, 0);">Highest Paying Customers</h3>
 <table class="table table-striped">
     <thead>
-        <tr style="color: aqua;">
+        <tr style="color: rgb(0, 0, 0);">
             <th>Member ID</th>
             <th>Name</th>
             <th>Amount Spent</th>
@@ -49,8 +49,8 @@
             <td >
                 <a href="member/{{member.id}}" class="btn btn-dark pull-right">{{"{:03d}".format(member.id)}}</a>
             </td>
-            <td style="color:white;">{{member.name}}</td>
-            <td style="color: white;">{{member.amount_spent}}</td>
+            <td style="color:rgb(0, 0, 0);">{{member.name}}</td>
+            <td style="color: rgb(0, 0, 0);">{{member.amount_spent}}</td>
         </tr >
         {% endfor %}
     </tbody>

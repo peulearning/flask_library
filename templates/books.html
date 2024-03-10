@@ -1,13 +1,13 @@
 {% extends 'layout.html' %}
 {% block body %}
 <br>
-<h1 style="color: aqua;">Books</h1>
+<h1 style="color: rgb(4, 4, 4);">Books</h1>
 <a class="btn btn-success" href="/add_book" >Add New Book</a>
 <a class="btn btn-secondary" href="/import_books">Import From API</a>
 <hr>
 {% if books %}
 <table class="table table-hover table-striped" >
-    <thead style="color: aqua;">
+    <thead style="color: rgb(6, 6, 6);">
         <tr >
             <th>Book ID</th>
             <th>Title</th>
@@ -20,9 +20,9 @@
             <th></th>
         </tr>
     </thead>
-    <tbody style="color: aqua;">
+    <tbody style="color: rgb(0, 0, 0);">
         {% for book in books %}
-        <tr style="cursor:pointer;color:white;">
+        <tr style="cursor:pointer;color:rgb(0, 0, 0);">
             <td><a href="/book/{{book.id}}" class="btn btn-dark pull-right">{{"{:05d}".format(book.id)}}</a></td>
             <td onclick="window.location='/book/{{book.id}}';">{{book.title}}</td>
             <td onclick="window.location='/book/{{book.id}}';">{{book.author}}</td>

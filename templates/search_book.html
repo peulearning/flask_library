@@ -1,9 +1,9 @@
 {% extends 'layout.html' %}
 {% block body %}
 <br>
-<h1 style="color: aqua;">Search for a Book</h1>
+<h1 style="color: rgb(0, 0, 0);">Search for a Book</h1>
 {% from "includes/_formhelpers.html" import render_field %}
-<form method="POST" action="" style="color: aqua;">
+<form method="POST" action="" style="color: rgb(0, 0, 0);">
     <div class="form-group">
         {{render_field(form.title, class_="form-control")}}
     </div><br>
@@ -14,9 +14,9 @@
 </form>
 {% if books %}
 <br>
-<h1 style="color: aqua;">Search Results: </h1>
+<h1 style="color: rgb(0, 0, 0);">Search Results: </h1>
 <hr>
-<table class="table table-hover table-striped" style="color: aqua;">
+<table class="table table-hover table-striped" style="color: rgb(0, 0, 0);">
     <thead>
         <tr>
             <th>Book ID</th>
@@ -32,7 +32,7 @@
     </thead>
     <tbody >
         {% for book in books %}
-        <tr style="cursor:pointer;color: aliceblue;">
+        <tr style="cursor:pointer;color: rgb(0, 0, 0);">
             <td><a href="/book/{{book.id}}" class="btn btn-dark pull-right">{{"{:05d}".format(book.id)}}</a></td>
             <td onclick="window.location='/book/{{book.id}}';">{{book.title}}</td>
             <td onclick="window.location='/book/{{book.id}}';">{{book.author}}</td>

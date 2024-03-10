@@ -1,11 +1,11 @@
 {% extends 'layout.html' %}
 {% block body %}
 <br>
-<h1 style="color: aqua;">Transactions</h1>
+<h1 style="color: rgb(0, 0, 0);">Transactions</h1>
 <a class="btn btn-success" href="/issue_book">Issue Book</a>
 <hr>
 {% if transactions%}
-<table class="table table-striped" style="color: aqua;">
+<table class="table table-striped" style="color: rgb(0, 0, 0);">
     <thead>
         <tr>
             <th>Transaction ID</th>
@@ -19,9 +19,9 @@
             <th></th>
         </tr>
     </thead>
-    <tbody style="color: aqua;">
+    <tbody style="color: rgb(0, 0, 0);">
         {% for transaction in transactions %}
-        <tr style="color: white;">
+        <tr style="color: rgb(0, 0, 0);">
             <td>{{transaction.id}}</td>
             <td>
                 <a href="book/{{transaction.book_id}}"

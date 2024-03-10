@@ -1,11 +1,11 @@
 {% extends 'layout.html' %}
 {% block body %}
 <br>
-<h1 style="color: aqua;">Members</h1>
+<h1 style="color: rgb(0, 0, 0);">Members</h1>
 <a class="btn btn-success" href="/add_member">Add New Member</a>
 <hr>
 {% if members%}
-<table class="table table-striped" style="color: aqua;">
+<table class="table table-striped" style="color: rgb(0, 0, 0);">
     <thead>
         <tr>
             <th>Member ID</th>
@@ -20,7 +20,7 @@
     </thead>
     <tbody>
         {% for member in members %}
-        <tr style="color:white;">
+        <tr style="color:rgb(0, 0, 0);">
             <td>{{member.id}}</td>
             <td>{{member.name}}</td>
             <td>{{member.email}}</td>
