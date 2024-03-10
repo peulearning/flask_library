@@ -4,13 +4,9 @@
 <h1 style="color: rgb(0, 0, 0);">Add New Member</h1>
 {% from "includes/_formhelpers.html" import render_field %}
 <form method="POST" action="" style="color: rgb(0, 0, 0);">
-    <div class="form-group">
-        {{render_field(form.name, class_="form-control")}}
-    </div><br>
-    <div class="form-group">
-        {{render_field(form.email, class_="form-control", type=email)}}
-    </div>
-    <br>
-    <p><button type="submit" class="btn btn-primary" value="Submit" style="color: aliceblue;">Submit</button></p>
+    <div class="form-group"> {{render_field(form.name, class_="form-control")}} </div><br>
+    <div class="form-group"> {{render_field(form.email, class_="form-control", type=email)}} </div> <br>
+    <input type="hidden" name="outstanding_debt" value="0">
+    <p><button type="submit" class="btn btn-primary" value="Submit" style="color: rgb(0, 0, 0);">Submit</button></p>
 </form>
 {% endblock %}

@@ -69,16 +69,18 @@ def add_member():
     form = AddMember(request.form)
 
     # To handle POST request to route
+
     if request.method == 'POST' and form.validate():
         name = form.name.data
         email = form.email.data
+        outstanding_debt = 0  # Set outstanding_debt to 0
+        amount_spent = 0  # Set amount_spent to 0
 
         # Create MySQLCursor
         cur = mysql.connection.cursor()
 
         # Execute SQL Query
-        cur.execute(
-            "INSERT INTO members (name, email) VALUES (%s, %s)", (name, email))
+        cur.execute("INSERT INTO members (name, email, outstanding_debt, amount_spent) VALUES (%s, %s, %s, %s)", (name, email, outstanding_debt, amount_spent))
 
         # Commit to DB
         mysql.connection.commit()
@@ -138,9 +140,27 @@ def delete_member(id):
     # Create MySQLCursor
     cur = mysql.connection.cursor()
 
-    # Execute SQL Query
-    cur.execute("DELETE FROM members WHERE id=%s", [id])
 
+    # Check for related records in the transactions table
+    cur.execute("SELECT COUNT(*) FROM transactions WHERE member_id = %s", [id])
+
+    result = cur.fetchone()
+
+    if result is not None:
+        count = result[0]
+        print(f"Count of related records in transactions table: {count}")
+        if count > 0:
+
+            # There are related records in the transactions table, so delete them first
+
+            cur.execute("DELETE FROM transactions WHERE member_id = %s", [id])
+
+            print(f"Deleted {cur.rowcount} related records from transactions table")
+
+    # Delete the member from the members table
+    cur.execute("DELETE FROM members WHERE id = %s", [id])
+
+    print(f"Deleted {cur.rowcount} rows from members table")
     # Commit to DB
     mysql.connection.commit()
 
@@ -222,7 +242,7 @@ def add_book():
         cur = mysql.connection.cursor()
 
         # Execute SQL Query
-        cur.execute("INSERT INTO books (id,title,author,average_rating,isbn,isbn13,language_code,num_pages,ratings_count,text_reviews_count,publication_date,publisher,total_quantity,available_quantity) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", [
+        cur.execute("INSERT INTO books (id,title,author,average_rating,isbn,isbn13,language_code,num_pages,ratings_count,text_reviews_count,publication_date,publisher,total_quantity,available_quantity, rented_count) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", [
             form.id.data,
             form.title.data,
             form.author.data,
@@ -236,9 +256,9 @@ def add_book():
             form.publication_date.data,
             form.publisher.data,
             form.total_quantity.data,
-            # When a book is first added, available_quantity = total_quantity
-            form.total_quantity.data
-        ])
+            form.total_quantity.data,
+            0
+        ]) # Padrão rented_count definido como 0
 
         # Commit to DB
         mysql.connection.commit()
