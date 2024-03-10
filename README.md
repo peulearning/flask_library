@@ -16,18 +16,14 @@ De que coisas você precisa para instalar o software e como instalá-lo?
 
 Independente do sistema operacional que esteja , verifique se possui o Python e sua versão instalada na sua máquina.
 
-``
 Faça o Clone do Projeto
 
-``
 
 ```
 git clone https://github.com/peulearning/flask_library.git
 
 ```
 
-
-``
 Nas depedências do projeto rodar no terminal se estiver utilizando PYTHON
 
 ```
@@ -57,8 +53,6 @@ Por fim execute
 python3 app.py
 
 ```
-
-``
 
 ### 🔩 Analise os testes de ponta a ponta
 
